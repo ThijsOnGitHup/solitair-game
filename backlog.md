@@ -9,7 +9,7 @@ on the work your team sees.
 | #     | Description                                       | Difficulty            | Persoon| done|
 |-------|:-------------------------------------------------:|----------------------:|---|---|
 | 1     | Write the implementations for CardMoveChecks deckLevelCheck method| Easy | Thijs|yes
-| 2     | Write the implementations for CardMoveChecks opposingColor method| Easy| Falco|
+| 2     | Write the implementations for CardMoveChecks opposingColor method| Easy| Falco|yes
 | 3     | Write the implementations for CardMoveChecks cardMoveCheck method| Easy| Thijs|
 | 4     | Write the implementation for the GameStateController init method| Difficult|
 | 5     | Write the implementations for CardMoveChecks checkPlayerInput method| Moderate| |
