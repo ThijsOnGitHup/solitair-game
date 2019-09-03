@@ -8,6 +8,8 @@ import nl.quintor.solitaire.models.card.Suit;
 import nl.quintor.solitaire.models.deck.Deck;
 import nl.quintor.solitaire.models.deck.DeckType;
 
+import javax.print.attribute.standard.Destination;
+
 /**
  * Library class for card move legality checks. The class is not instantiable, all constructors are private and all methods are
  * static. The class contains several private helper methods. All methods throw {@link MoveException}s, which can
@@ -45,6 +47,18 @@ public class CardMoveChecks {
      * @throws MoveException on illegal move
      */
     public static void deckLevelChecks(Deck sourceDeck, int sourceCardIndex, Deck destinationDeck) throws MoveException {
+        if(sourceDeck.getDeckType()==DeckType.STACK&&destinationDeck.getDeckType()==DeckType.WASTE){
+
+        }else if(sourceDeck.getDeckType()==DeckType.WASTE&&destinationDeck.getDeckType()==DeckType.STACK){
+
+        }else if(destinationDeck.getDeckType()==DeckType.COLUMN){
+
+        }else if(destinationDeck.getDeckType()==DeckType.STACK){
+
+        }else{
+            throw new MoveException("This move is not valid");
+        }
+
         // TODO: Write implementation
     }
 
