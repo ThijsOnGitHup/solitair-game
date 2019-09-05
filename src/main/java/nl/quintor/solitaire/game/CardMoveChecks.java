@@ -111,59 +111,7 @@ public class CardMoveChecks {
      * @return true if the cards are of different colors
      */
     static boolean opposingColor(Card card1, Card card2){
-        switch(card1.getSuit()){
-            case CLUBS:
-                switch (card2.getSuit()){
-                    case DIAMONDS:
-                        return true;
-
-                    case HEARTS:
-                        return true;
-
-                    default:
-                        return false;
-
-
-                }
-            case DIAMONDS:
-                switch (card2.getSuit()){
-                    case CLUBS:
-                        return true;
-
-                    case SPADES:
-                        return true;
-
-                    default:
-                        return false;
-
-                }
-            case HEARTS:
-                switch (card2.getSuit()){
-                    case CLUBS:
-                        return true;
-
-                    case SPADES:
-                        return true;
-
-                    default:
-                        return false;
-
-                }
-            case SPADES:
-                switch (card2.getSuit()){
-                    case DIAMONDS:
-                        return true;
-
-                    case HEARTS:
-                        return true;
-
-                    default:
-                        return false;
-                }
-            case JOKER:
-                return false;
-        }
-        return false;
+        return redSuit(card1) != redSuit(card2);
     }
 
     /**
