@@ -1,7 +1,9 @@
 package nl.quintor.solitaire.game;
 
 import nl.quintor.solitaire.game.moves.Help;
+import nl.quintor.solitaire.game.moves.Move;
 import nl.quintor.solitaire.game.moves.ex.MoveException;
+import nl.quintor.solitaire.game.moves.ex.NotYetImplementedException;
 import nl.quintor.solitaire.models.card.Card;
 import nl.quintor.solitaire.models.card.Rank;
 import nl.quintor.solitaire.models.card.Suit;
@@ -47,21 +49,20 @@ public class CardMoveChecks {
      * @throws MoveException on illegal move
      */
     public static void deckLevelChecks(Deck sourceDeck, int sourceCardIndex, Deck destinationDeck) throws MoveException {
-        if(sourceDeck.getDeckType()==DeckType.STACK&&destinationDeck.getDeckType()==DeckType.WASTE){
-
-        }else if(sourceDeck.getDeckType()==DeckType.WASTE&&destinationDeck.getDeckType()==DeckType.STACK){
-
-        }else if(destinationDeck.getDeckType()==DeckType.COLUMN){
-
-        }else if(destinationDeck.getDeckType()==DeckType.STACK){
-
-        }else{
-            throw new MoveException("This move is not valid");
+        if (sourceDeck == destinationDeck) {
+            throw new MoveException("Move source and destination can't be the same");
+        } else if (!(sourceDeck.getDeckType() == DeckType.WASTE) && destinationDeck.getDeckType() == DeckType.STOCK) {
+            throw new MoveException("You can\'t move cards to the stock");
+        } else if (sourceDeck.size() == 0) {
+            throw new MoveException("You can\'t move a card from an empty deck");
+        } else if (sourceDeck.getInvisibleCards() != 0) {
+            throw new MoveException("You can\'t move an invisible card");
+        } else if (destinationDeck.getDeckType()==DeckType.STACK) {
+            if(sourceDeck.subList(sourceCardIndex,sourceDeck.size()).size() > 1){
+                throw new MoveException("You can\'t move more than 1 card at a time to a Stack Pile");
+            }
         }
-
-        // TODO: Write implementation
     }
-
     /**
      * Verifies that a card move is possible given the rank and suit of the card or first card to be moved. Assumes the
      * {@link #checkPlayerInput(String[])} and {@link #deckLevelChecks(Deck, int, Deck)} checks have passed. The checks
@@ -74,6 +75,7 @@ public class CardMoveChecks {
      */
     public static void cardLevelChecks(Deck targetDeck, Card cardToAdd) throws MoveException {
         // TODO: Write implementation
+
     }
 
     // Helper methods
@@ -87,6 +89,7 @@ public class CardMoveChecks {
      */
     static void checkStackMove(Card targetCard, Card cardToAdd) throws MoveException {
         // TODO: Write implementation
+
     }
 
     /**
@@ -108,7 +111,6 @@ public class CardMoveChecks {
      * @return true if the cards are of different colors
      */
     static boolean opposingColor(Card card1, Card card2){
-        // TODO: Write implementation
         switch(card1.getSuit()){
             case CLUBS:
                 switch (card2.getSuit()){
