@@ -86,6 +86,9 @@ public final class Deck extends ArrayList<Card> {
             .collect(Collectors.toCollection(Deck::new));
     }
 
+    public Card getLastCard(){
+        return this.get(this.size()-1);
+    }
     /**
      * Getter for deckType.
      *
