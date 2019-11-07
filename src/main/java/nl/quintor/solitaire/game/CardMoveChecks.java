@@ -11,6 +11,8 @@ import nl.quintor.solitaire.models.deck.Deck;
 import nl.quintor.solitaire.models.deck.DeckType;
 
 import javax.print.attribute.standard.Destination;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Library class for card move legality checks. The class is not instantiable, all constructors are private and all methods are
@@ -75,6 +77,28 @@ public class CardMoveChecks {
      */
     public static void cardLevelChecks(Deck targetDeck, Card cardToAdd) throws MoveException {
         // TODO: Write implementation
+        Card lastCard=targetDeck.getLastCard();
+        if(targetDeck.getDeckType()==DeckType.STACK){
+            if(targetDeck.size()==0  && cardToAdd.getRank()!=Rank.ACE ){
+                throw new MoveException("An Ace has to be the first card of a Stack Pile");
+            }else if(lastCard.getRank()==Rank.ACE && cardToAdd.getRank()!=Rank.TWO){
+                throw new MoveException("Stack Piles hold same-suit cards of increasing Rank from Ace to King");
+            }else if(lastCard.getOrdinal()>cardToAdd.getOrdinal()){
+                throw new MoveException("Stack Piles hold same-suit cards of increasing Rank from Ace to King");
+            }else if(lastCard.getSuit()!=cardToAdd.getSuit()){
+                throw new MoveException("Stack Piles can only contain same-suit cards");
+            }
+        }else if(targetDeck.getDeckType()==DeckType.COLUMN){
+            if(targetDeck.size()==0  && cardToAdd.getRank()!=Rank.KING ){
+                throw new MoveException("An King has to be the first card of a Column Pile");
+            }else if(targetDeck.getLastCard().getRank()==Rank.ACE && cardToAdd.getRank()!=Rank.TWO){
+                throw new MoveException("");
+            }
+        }else{
+            throw new MoveException("Target deck is neither Stack nor Column.");
+        }
+
+
 
     }
 
