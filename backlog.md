@@ -8,9 +8,9 @@ on the work your team sees.
 
 | #     | Description                                       | Difficulty            | Persoon| done|
 |-------|:-------------------------------------------------:|----------------------:|---|---|
-| 1     | Write the implementations for CardMoveChecks deckLevelCheck method| Easy | Thijs|yes
-| 2     | Write the implementations for CardMoveChecks opposingColor method| Easy| Falco|
-| 3     | Write the implementations for CardMoveChecks cardMoveCheck method| Easy| Thijs|
+| 1     | Write the implementations for CardMoveChecks deckLevelCheck method| Easy | Thijs|Fixed and Done
+| 2     | Write the implementations for CardMoveChecks opposingColor method| Easy| Falco & Christian|yes
+| 3     | Write the implementations for CardMoveChecks cardLevelCheck method| Easy| Thijs|
 | 4     | Write the implementation for the GameStateController init method| Difficult|
 | 5     | Write the implementations for CardMoveChecks checkPlayerInput method| Moderate| |
 | 6     | Write the implementations for GameStateParser PadAndAdd method| Moderate||
@@ -18,7 +18,7 @@ on the work your team sees.
 | 8     | Write the implementations for GameStateParser PadAndAdd method| Moderate||
 | 9     | Write the implementations for GameStateParser printRow method| Moderate||
 | 10    | Write the implementations for GameStateParser parseGameState method| DIfficult||
-| 11    | Write the implementation for the GameStateController winDetection method| Moderate||
+| 11    | Write the implementation for the GameStateController winDetection method| Moderate|Christian| done
 | 12    | Write the implementation for the GameStateController applyBonusScore method| Moderate||
 | 13    | Write the implementation for the GameStateController applyTimePenalty method| Moderate||
 | 14    | Write the implementation for the GameStateController init method| Moderate||
