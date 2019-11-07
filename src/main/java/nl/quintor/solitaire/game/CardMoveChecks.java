@@ -1,7 +1,9 @@
 package nl.quintor.solitaire.game;
 
 import nl.quintor.solitaire.game.moves.Help;
+import nl.quintor.solitaire.game.moves.Move;
 import nl.quintor.solitaire.game.moves.ex.MoveException;
+import nl.quintor.solitaire.game.moves.ex.NotYetImplementedException;
 import nl.quintor.solitaire.models.card.Card;
 import nl.quintor.solitaire.models.card.Rank;
 import nl.quintor.solitaire.models.card.Suit;
@@ -63,7 +65,6 @@ public class CardMoveChecks {
 
         // TODO: Write implementation
     }
-
     /**
      * Verifies that a card move is possible given the rank and suit of the card or first card to be moved. Assumes the
      * {@link #checkPlayerInput(String[])} and {@link #deckLevelChecks(Deck, int, Deck)} checks have passed. The checks
@@ -76,7 +77,6 @@ public class CardMoveChecks {
      */
     public static void cardLevelChecks(Deck targetDeck, Card cardToAdd) throws MoveException {
         // TODO: Write implementation
-
         Card lastCard=targetDeck.getLastCard();
         if(targetDeck.getDeckType()==DeckType.STACK){
             if(targetDeck.size()==0  && cardToAdd.getRank()!=Rank.ACE ){
@@ -112,6 +112,7 @@ public class CardMoveChecks {
      */
     static void checkStackMove(Card targetCard, Card cardToAdd) throws MoveException {
         // TODO: Write implementation
+
     }
 
     /**
