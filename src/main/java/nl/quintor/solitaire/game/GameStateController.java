@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 
 /**
  * Library class for GameState initiation and status checks that are called from {@link nl.quintor.solitaire.Main}.
@@ -56,6 +57,15 @@ public class GameStateController {
      * @param gameState GameState object of which it is determined if the game has been won
      */
     public static void detectGameWin(GameState gameState){
-        // TODO: Write implementation
+        boolean anyVisibleCards = true;
+
+        for (Map.Entry<String, Deck> deck : gameState.getColumns().entrySet()) {
+            if (deck.getValue().getInvisibleCards() > 0) {
+                anyVisibleCards = false;
+            }
+        }
+
+        boolean win = (anyVisibleCards && gameState.getStock().isEmpty());
+        gameState.setGameWon(win);
     }
 }
